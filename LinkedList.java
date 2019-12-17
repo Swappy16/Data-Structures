@@ -29,6 +29,36 @@ class LinkedListCreator{
         curr.nextNodeRef = newNode;
     }
 
+    void deleteNodeWithData(int data){
+        Node curr = headNodeRef;
+        if(curr.data == data){
+            headNodeRef = curr.nextNodeRef;
+            System.out.println("Deleted");
+            return;
+        }
+        while(curr.nextNodeRef.data!=data){
+            curr = curr.nextNodeRef;
+        }
+        curr.nextNodeRef = curr.nextNodeRef.nextNodeRef;
+    }
+
+    void deleteNodeWithIndex(int index){
+        //index starts from 1 to n
+        Node curr = headNodeRef;
+        if(index==1){
+            headNodeRef = curr.nextNodeRef;
+            return;
+        }
+
+        int currIndex = 1;
+        while(currIndex!=index-1){
+            curr=curr.nextNodeRef;
+            currIndex++;
+        }
+        curr.nextNodeRef = curr.nextNodeRef.nextNodeRef;
+        System.out.println("Deleted successfully");
+    }
+
     void printLinkedList(){
         Node curr = headNodeRef;
         int nodeNo = 1;
@@ -37,6 +67,7 @@ class LinkedListCreator{
             System.out.println("Its location : " + curr);
             System.out.println("Next Node location: " + curr.nextNodeRef + "\n");
             curr = curr.nextNodeRef;
+            nodeNo++;
         }
         System.out.println("\n");
     }
@@ -47,8 +78,10 @@ public class LinkedList{
 
         l.insertInBeg(10);
         l.insertInBeg(20);
+        l.insertInEnd(30);
+        l.insertInEnd(40);
         l.printLinkedList();
-        l.insertInEnd(100);
+        l.deleteNodeWithIndex(1);
         l.printLinkedList();
     }
 }
