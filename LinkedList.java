@@ -59,6 +59,24 @@ class LinkedListCreator{
         System.out.println("Deleted successfully");
     }
 
+    void insertAtIndex(int index, int data){
+        //index begins from 1
+        if(index==1){
+            insertInBeg(data);
+            return;
+        }
+        Node newNode = new Node(data);
+        Node curr = headNodeRef;
+        int currIndex = 1;
+        while(currIndex!=index-1){
+            curr = curr.nextNodeRef;
+            currIndex+=1;
+        }
+        newNode.nextNodeRef = curr.nextNodeRef;
+        curr.nextNodeRef = newNode;
+        System.out.println("Added successfully");
+    }
+
     void printLinkedList(){
         Node curr = headNodeRef;
         int nodeNo = 1;
@@ -81,7 +99,9 @@ public class LinkedList{
         l.insertInEnd(30);
         l.insertInEnd(40);
         l.printLinkedList();
-        l.deleteNodeWithIndex(1);
+        l.insertAtIndex(2,15);
+        l.printLinkedList();
+        l.deleteNodeWithData(10);
         l.printLinkedList();
     }
 }
