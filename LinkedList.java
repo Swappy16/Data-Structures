@@ -91,6 +91,7 @@ class LinkedListCreator{
     }
 }
 //this is a comment
+// another comment
 public class LinkedList{
     public static void main(String[] args) {
         LinkedListCreator l = new LinkedListCreator();
