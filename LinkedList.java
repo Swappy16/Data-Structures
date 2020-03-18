@@ -90,6 +90,7 @@ class LinkedListCreator{
         System.out.println("\n");
     }
 }
+//this is a comment
 public class LinkedList{
     public static void main(String[] args) {
         LinkedListCreator l = new LinkedListCreator();
